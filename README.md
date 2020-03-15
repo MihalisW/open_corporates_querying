@@ -104,6 +104,8 @@ $ pip3 install -r requirements.txt
 
 ## Usage
 
+_The database I used was postgresql 11.0_
+
 Use by running main.py and passing in the term you are searching (in this case 'smart') and the name of the target table (in this case 'company'):
 ```shell
 $ python3 main.py smart company
