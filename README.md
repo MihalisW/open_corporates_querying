@@ -1,6 +1,6 @@
 # Summary
 
-Please see my answer to your test in this repo. My general approach has been to write something which just works, and which can be built upon at a later stage. Below I include a brief description of how I've dealt with your considerations:
+Please see my answer to your test in this repo. My general approach has been to write something functional, which can be built upon at a later stage. Below I include a brief description of how I've dealt with your considerations:
 
 _Automated unit tests_:
 
@@ -23,7 +23,7 @@ I have also included error handling for other situations where appropriate.
 
 _Handling of API rate limiting_:
 
-As the time limits are quite long (the lowest limit is a day) I took the simple approach of simply counting the calls I made. You can see my implimentation between lines 107 and 126 of `open_corporates_querying.py`.
+As the time limits are quite long (the lowest limit is a day) I took the simple approach of simply counting the calls I made. You can see my implementation between lines 107 and 126 of `open_corporates_querying.py`.
 ```python
                 # In terms of rate limitting by time, I'm just assuming that
                 # making 50 calls is not going take longer than 24 hours and
@@ -59,7 +59,7 @@ which is then imported into `open_corporates_querying.py`, in order to construct
 This way the API key is entered only once in the environment in which it's used, so multiple scripts can
 potentially use the one variable. It also prevents the risk of mistakenly pushing the API key into a public 
 repository by keeping it inline.
-An innovation on this method might be to use something like [AWS AppConfig](https://aws.amazon.com/systems-manager/features/), in order to store secrets independently particular resources. 
+An innovation on this method might be to use something like [AWS AppConfig](https://aws.amazon.com/systems-manager/features/), in order to store secrets independently of particular resources. 
 
 _Consideration for how the code would perform with much higher volumes of data (e.g. 100,000 company records)_:
 
@@ -70,7 +70,7 @@ lean and this allows for faster computation of multiple lines.
 
 ## Installation
 
-_This assumes a unix environment_
+_This assumes a unix environment and that you are using python 3.*_
 
 Clone this repository:
 ```shell
@@ -86,6 +86,16 @@ Activate virtuaenv:
 ```shell
 $ source /path/to/new/virtual/environment/bin/activate
 ``` 
+
+Go into directory you just created:
+```shell
+$ cd environment
+``` 
+
+Make sure you update pip:
+```shell
+$ pip3 install --upgrade pip
+```
 
 Install required packages from requirements.txt file:
 ```shell
@@ -106,5 +116,3 @@ Unit tests are included and can be run like so:
 ```shell
 $ python3 -m unittest test_open_corporates_querying.py
 ```
-
-
