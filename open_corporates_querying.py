@@ -141,22 +141,22 @@ class QueryCompanies(object):
                             # I'm assuming that this is acceptable.
                             sliced_company = self.select_columns(
                                 company["company"])
-                            # Get ultimate_beneficiary_owners from seperate end
+                            # Get ultimate_beneficial_owners from seperate end
                             # point.
                             if self.debug_mode:
-                                ultimate_beneficiary_owners = None
+                                ultimate_beneficial_owners = None
                             else:
                                 ubo_endpoint = "https://api.opencorporates.com/v0.4/companies/" + \
-                                    sliced_company["jurisdiction_code"] + \
-                                    "/" + sliced_company["company_number"]
-                                ultimate_beneficiary_owners = self.call_enpoint(ubo_endpoint)["results"][
-                                    "company"]["ultimate_beneficiary_owners"]
-                            # Update the ultimate_beneficiary_owners column of
+                                    sliced_company[2] + \
+                                    "/" + sliced_company[1]
+                                ultimate_beneficial_owners = self.call_enpoint(ubo_endpoint)["results"][
+                                    "company"]["ultimate_beneficial_owners"]
+                            # Update the ultimate_beneficial_owners column of
                             # the company.
                             sliced_company[
-                                len(sliced_company) - 2] = ultimate_beneficiary_owners
+                                len(sliced_company) - 2] = ultimate_beneficial_owners
                             # self.company_attributes.append(
-                            #     "ultimate_beneficiary_owners")
+                            #     "ultimate_beneficial_owners")
                             # Extraction timestamp for audit purposes.
                             sliced_company[
                                 len(sliced_company) - 1] = datetime.now()
