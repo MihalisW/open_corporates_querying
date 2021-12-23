@@ -141,7 +141,7 @@ psycopg2==2.8.2
 psycopg2-binary==2.8.2
 ptyprocess==0.6.0
 Pweave==0.30.3
-py==1.6.0
+py==1.10.0
 pyasn1==0.3.6
 pyasn1-modules==0.2.2
 pycodestyle==2.4.0
