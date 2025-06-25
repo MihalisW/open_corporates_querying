@@ -12,7 +12,7 @@ class TestQueryCompanies(unittest.TestCase):
         # Set up test
         self.test_query = QueryCompanies("barclays bank", "company")
         # print(self.test_query.search_endpoint)
-        self.test_query.api_key = "XXX"
+        self.test_query.api_key = os.getenv("API_KEY")
         self.search_endpoint = "https://api.opencorporates.com/v0.4/companies/gb/09026697"
         # self.test_query.filename = datetime.now().strftime(
         #     "/%Y_%m_%d_%*") + "_results.csv"
