@@ -1,7 +1,5 @@
 # Summary
 
-Please see my answer to your test in this repo. My general approach has been to write something functional, which can be built upon at a later stage. Below I include a brief description of how I've dealt with your considerations:
-
 _Automated unit tests_:
 
 Tests are included in `test_open_corporates_querying.py`. Please see `Usage` section below for how to run the tests.
